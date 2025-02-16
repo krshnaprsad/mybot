@@ -16,8 +16,7 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Authenticate with Railway
-        run: echo "507f927a-fc7b-4402-9b86-e95d5731d602" | railway login
-
       - name: Deploy to Railway
-        run: railway up --service=mybot
+        env:
+          RAILWAY_API_KEY: "507f927a-fc7b-4402-9b86-e95d5731d602"
+        run: railway up --service=mybot --token $RAILWAY_API_KEY
