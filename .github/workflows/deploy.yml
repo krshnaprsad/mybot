@@ -13,15 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
+      - name: Authenticate Railway
+        run: railway login --auth 507f927a-fc7b-4402-9b86-e95d5731d602
+
       - name: Deploy to Railway
-        env:
-          RAILWAY_API_KEY: ${{ secrets.RAILWAY_API_KEY }}
         run: railway up --service=mybot
