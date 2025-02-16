@@ -27,5 +27,5 @@ jobs:
         env:
           RAILWAY_API_KEY: ${{ secrets.RAILWAY_API_KEY }}
         run: |
-          railway login --token $RAILWAY_API_KEY
+          railway auth $RAILWAY_API_KEY
           railway up
