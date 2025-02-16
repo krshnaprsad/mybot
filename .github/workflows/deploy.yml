@@ -16,7 +16,8 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
+      - name: Set Railway API Key
+        run: export RAILWAY_API_KEY="507f927a-fc7b-4402-9b86-e95d5731d602"
+
       - name: Deploy to Railway
-        env:
-          RAILWAY_API_KEY: "507f927a-fc7b-4402-9b86-e95d5731d602"
-        run: railway up --service=mybot --token $RAILWAY_API_KEY
+        run: railway up --service=mybot
