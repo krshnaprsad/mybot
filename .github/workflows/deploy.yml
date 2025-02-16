@@ -24,6 +24,4 @@ jobs:
       - name: Deploy to Railway
         env:
           RAILWAY_API_KEY: ${{ secrets.RAILWAY_API_KEY }}
-        run: |
-          echo $RAILWAY_API_KEY | railway login
-          railway up
+        run: railway up --service=mybot
